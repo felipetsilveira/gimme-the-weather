@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container" *ngIf="weatherInfo">
   <div class="upper-data">
-    <img src="../assets/sunny.jpg" alt="Sun" *ngIf="14 > 15">
-    <img src="../assets/night.jpg" alt="Night" *ngIf="14 <= 15">
+    <img src="../assets/sunny.jpg" alt="Sun" *ngIf="weatherInfo.main.temp > 15">
+    <img src="../assets/night.jpg" alt="Night" *ngIf="weatherInfo.main.temp <= 15">
 
     <div class="weather-data">
-      <div class="location">Porto Alegre</div>
-      <div class="temperature">{{ 17.89 | number: '1.0-0' }}°C</div>
+      <div class="location">{{ weatherInfo.name }}</div>
+      <div class="temperature">{{ weatherInfo.main.temp | number: '1.0-0' }}°C</div>
     </div>
   </div>
   <div class="lower-data">
@@ -18,7 +18,7 @@
           <span>min</span>
         </div>
         <div class="info-blk-vle">
-          10°C
+          {{ weatherInfo.main.temp_min }}°C
         </div>
       </div>
 
@@ -27,7 +27,7 @@
           <span>max</span>
         </div>
         <div class="info-blk-vle">
-          20°C
+          {{ weatherInfo.main.temp_max}}°C
         </div>
       </div>
 
@@ -36,7 +36,7 @@
           <span>humidity</span>
         </div>
         <div class="info-blk-vle">
-          70%
+          {{ weatherInfo.main.humidity }}%
         </div>
       </div>
 
@@ -45,10 +45,9 @@
           <span>wind</span>
         </div>
         <div class="info-blk-vle">
-          14km/h
+          {{ weatherInfo.wind.speed }}km/h
         </div>
       </div>
     </div>
   </div>
-</div>
 <router-outlet></router-outlet>

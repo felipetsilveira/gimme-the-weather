@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  getWeatherBaseUrl: 'https://community-open-weather-map.p.rapidapi.com/weather',
+  xRapidAPIHostHeaderName: 'X-RapidAPI-Host',
+  xRapidAPIHostHeaderValue: 'community-open-weather-map.p.rapidapi.com',
+  XRapidAPIKeyHeaderName: 'X-RapidAPI-Key',
+  XRapidAPIKeyHeaderValue: '82951dec23msh8fc86c1ea2c1650p16de40jsn0d6334f236c1'
 };
 
 /*
