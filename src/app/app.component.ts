@@ -17,6 +17,9 @@ export class AppComponent implements OnInit {
     this.weatherService.getWeatherInfo('Wellington').subscribe({
       next: (response) => {
         this.weatherInfo = response
+      },
+      error: (err) => {
+        alert('Cidade nao encontrada, tente outra.')
       }
     });
   }
