@@ -11,10 +11,21 @@ export class AppComponent implements OnInit {
 
   constructor(private weatherService: WeatherService) {}
 
+  city: string = 'Porto Alegre'
   weatherInfo?: WeatherData
 
   ngOnInit(): void {
-    this.weatherService.getWeatherInfo('Wellington').subscribe({
+    this.getWeatherinfo(this.city)
+    this.city = ''
+  }
+
+  onSubmit() {
+    this.getWeatherinfo(this.city)
+    this.city = ''
+  }
+
+  private getWeatherinfo(city: string) {
+    this.weatherService.getWeatherInfo(city).subscribe({
       next: (response) => {
         this.weatherInfo = response
       },
